@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Inpatient Nursing Care Plan Generator",
+  "description": "Create, customize, and print clinical dual-nursing care plans for inpatients with searchable NANDA-I diagnoses, upper-right patient labels, and print-ready formatting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

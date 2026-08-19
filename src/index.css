@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Hide scrollbars for chips */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm;
+  }
+
+  @page landscape-page {
+    size: A4 landscape;
+    margin: 6mm;
+  }
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    font-size: 12pt;
+  }
+
+  /* Hide all UI elements during browser print */
+  .no-print,
+  header,
+  main,
+  #print-preview-modal-backdrop,
+  #saved-records-modal-backdrop,
+  #nanda-search-modal-backdrop {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Container for printing */
+  .print-only-container {
+    display: block !important;
+    visibility: visible !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  /* Individual A4 printable care plan sheet */
+  .printable-sheet {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 275mm !important;
+    height: auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 2mm 0 !important;
+    background: #ffffff !important;
+  }
+
+  .printable-sheet.page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .printable-sheet:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  /* Individual A4 printable bedside card & label sheet (Exact A4 Landscape Layout: 270mm x 140mm) */
+  .printable-landscape-sheet {
+    page: landscape-page;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 190mm !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .printable-landscape-sheet.page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .bedside-card-sheet {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .bedside-sheet-grid {
+    width: 270mm !important;
+    height: 140mm !important;
+    margin: 0 auto !important;
+  }
+}
