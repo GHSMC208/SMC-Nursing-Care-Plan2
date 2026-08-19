@@ -333,7 +333,7 @@ export default function App() {
                 </span>
               </h1>
               <p className="text-xs text-slate-500">
-                Standard NANDA-I taxonomy • Upper-right patient label • A4 Bedside & Door Card printouts
+                Standard NANDA-I taxonomy • Patient Label • Bedside & Cards Printouts
               </p>
             </div>
           </div>
