@@ -316,24 +316,24 @@ export default function App() {
 
       {/* Top Application Navigation Bar (Hidden on Print) */}
       <header className="no-print sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-4">
           {/* Brand & Title */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4 sm:gap-5">
             <img
               src={governmentHospitalsLogo}
               alt="Government Hospitals Logo"
-              className="w-10 h-10 object-contain shrink-0 rounded-lg bg-white p-0.5 border border-slate-200 shadow-xs"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain shrink-0 rounded-2xl bg-white p-1.5 border border-slate-200 shadow-sm transition-all hover:scale-105"
               referrerPolicy="no-referrer"
             />
             <div>
-              <h1 className="text-base sm:text-lg font-bold text-slate-900 leading-tight flex items-center gap-2">
-                Inpatient Care Plan Suite
-                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 hidden sm:inline">
+              <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-tight flex flex-wrap items-center gap-2.5">
+                <span>Inpatient Care Plan Suite</span>
+                <span className="text-[11px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 border border-red-200 shadow-2xs">
                   Government Hospitals • SMC
                 </span>
               </h1>
-              <p className="text-xs text-slate-500">
-                Standard NANDA-I taxonomy • Patient Label • Bedside & Cards Printouts
+              <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                Standard NANDA-I taxonomy • Bedside & Cards Printouts
               </p>
             </div>
           </div>

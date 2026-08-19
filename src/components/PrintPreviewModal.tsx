@@ -61,25 +61,25 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
   return (
     <div
       id="print-preview-modal-backdrop"
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/60 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-150"
       onClick={onClose}
     >
       <div
         id="print-preview-modal-container"
-        className="relative w-full max-w-6xl max-h-[96vh] bg-slate-900 rounded-xl shadow-2xl border border-slate-700 flex flex-col overflow-hidden text-slate-100 my-auto"
+        className="relative w-full max-w-6xl max-h-[96vh] bg-white rounded-xl shadow-2xl border border-slate-200 flex flex-col overflow-hidden text-slate-800 my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Control Bar */}
-        <div className="flex flex-wrap items-center justify-between px-6 py-3.5 border-b border-slate-800 bg-slate-900 gap-3">
+        <div className="flex flex-wrap items-center justify-between px-6 py-3.5 border-b border-slate-200 bg-white gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs">
               <Printer className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white flex items-center gap-2">
+              <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
                 A4 Print Preview & Export
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 {currentDocType === 'bedside'
                   ? 'Bedside & Door Label Sheet (A4 Landscape — Exact Hospital Template)'
                   : currentDocType === 'careplans'
@@ -91,14 +91,14 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
 
           {/* Document Type Switcher */}
           <div className="flex flex-wrap items-center gap-2">
-            <div className="bg-slate-800 p-1 rounded-lg border border-slate-700 flex items-center text-xs">
+            <div className="bg-slate-100 p-1 rounded-lg border border-slate-200 flex items-center text-xs">
               <button
                 type="button"
                 onClick={() => handleSelectDocType('bedside')}
                 className={`px-3 py-1.5 rounded-md font-bold transition-all flex items-center gap-1.5 ${
                   currentDocType === 'bedside'
                     ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-300 hover:text-white'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <Tag className="w-3.5 h-3.5" />
@@ -111,7 +111,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                 className={`px-3 py-1.5 rounded-md font-bold transition-all flex items-center gap-1.5 ${
                   currentDocType === 'careplans'
                     ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-300 hover:text-white'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                 className={`px-3 py-1.5 rounded-md font-bold transition-all flex items-center gap-1.5 ${
                   currentDocType === 'both_types'
                     ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-300 hover:text-white'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <Layers className="w-3.5 h-3.5" />
@@ -134,14 +134,14 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
 
             {/* Scope Selection (When Care Plans are visible) */}
             {(currentDocType === 'careplans' || currentDocType === 'both_types') && (
-              <div className="bg-slate-800 p-1 rounded-lg border border-slate-700 flex items-center text-xs">
+              <div className="bg-slate-100 p-1 rounded-lg border border-slate-200 flex items-center text-xs">
                 <button
                   type="button"
                   onClick={() => onPrintScopeChange('both')}
                   className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                     printScope === 'both'
-                      ? 'bg-slate-700 text-white shadow-xs'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Both Plans
@@ -151,8 +151,8 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                   onClick={() => onPrintScopeChange('plan1')}
                   className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                     printScope === 'plan1'
-                      ? 'bg-slate-700 text-white shadow-xs'
-                    : 'text-slate-400 hover:text-white'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Plan 1
@@ -162,8 +162,8 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                   onClick={() => onPrintScopeChange('plan2')}
                   className={`px-2.5 py-1 rounded-md font-semibold transition-all ${
                     printScope === 'plan2'
-                      ? 'bg-slate-700 text-white shadow-xs'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-white text-slate-900 shadow-xs border border-slate-200'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   Plan 2
@@ -172,22 +172,22 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             )}
 
             {/* Zoom Controls & Dimension Guide Toggle */}
-            <div className="hidden md:flex items-center bg-slate-800 rounded-lg border border-slate-700 p-1 text-xs gap-1">
+            <div className="hidden md:flex items-center bg-slate-100 rounded-lg border border-slate-200 p-1 text-xs gap-1">
               <button
                 type="button"
                 onClick={() => setZoomLevel((z) => Math.max(50, z - 10))}
-                className="p-1.5 rounded text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded text-slate-500 hover:text-slate-900 transition-colors"
                 title="Zoom Out"
               >
                 <ZoomOut className="w-3.5 h-3.5" />
               </button>
-              <span className="px-1.5 text-slate-300 font-mono text-[11px] min-w-[42px] text-center">
+              <span className="px-1.5 text-slate-700 font-mono text-[11px] min-w-[42px] text-center font-bold">
                 {zoomLevel}%
               </span>
               <button
                 type="button"
                 onClick={() => setZoomLevel((z) => Math.min(130, z + 10))}
-                className="p-1.5 rounded text-slate-400 hover:text-white transition-colors"
+                className="p-1.5 rounded text-slate-500 hover:text-slate-900 transition-colors"
                 title="Zoom In"
               >
                 <ZoomIn className="w-3.5 h-3.5" />
@@ -195,7 +195,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
               <button
                 type="button"
                 onClick={() => setZoomLevel(100)}
-                className="px-2 py-1 rounded text-[10px] text-slate-400 hover:text-white transition-colors font-medium border-l border-slate-700"
+                className="px-2 py-1 rounded text-[10px] text-slate-600 hover:text-slate-900 transition-colors font-medium border-l border-slate-200"
                 title="Reset to 100%"
               >
                 100%
@@ -205,8 +205,10 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowDimensions(!showDimensions)}
-                  className={`px-2 py-1 rounded text-[10px] font-bold transition-all border-l border-slate-700 ml-1 flex items-center gap-1 ${
-                    showDimensions ? 'bg-emerald-800/80 text-emerald-200' : 'text-slate-400 hover:text-slate-200'
+                  className={`px-2 py-1 rounded text-[10px] font-bold transition-all border-l border-slate-200 ml-1 flex items-center gap-1 ${
+                    showDimensions
+                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                   title="Toggle 9x7cm and 1.6x6.5cm dimension rulers on screen"
                 >
@@ -229,7 +231,7 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -237,27 +239,27 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
         </div>
 
         {/* Print Instruction Subbar */}
-        <div className="bg-slate-800/90 px-6 py-2 border-b border-slate-700 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2">
+        <div className="bg-blue-50/70 px-6 py-2.5 border-b border-blue-100 text-xs text-slate-700 flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+            <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
             <span>
-              <strong>Print Setting Tip:</strong> Paper size <span className="text-blue-300 font-bold">A4</span> •{' '}
+              <strong>Print Setting Tip:</strong> Paper size <span className="text-blue-800 font-bold">A4</span> •{' '}
               {currentDocType === 'bedside' ? (
                 <>
-                  Orientation: <span className="text-emerald-300 font-bold">Landscape</span> •{' '}
+                  Orientation: <span className="text-emerald-800 font-bold">Landscape</span> •{' '}
                 </>
               ) : (
                 <>
-                  Orientation: <span className="text-blue-300 font-bold">Portrait</span> •{' '}
+                  Orientation: <span className="text-blue-800 font-bold">Portrait</span> •{' '}
                 </>
               )}
-              Enable <span className="text-blue-300 font-bold">"Background Graphics"</span> in browser print dialog.
+              Enable <span className="text-blue-800 font-bold">"Background Graphics"</span> in browser print dialog.
             </span>
           </div>
-          <div className="flex items-center gap-3 text-[11px] text-slate-400 font-mono">
+          <div className="flex items-center gap-3 text-[11px] text-slate-600 font-mono">
             <span>A4 Size: 297mm × 210mm</span>
             <span>•</span>
-            <span className="text-blue-400 font-bold">
+            <span className="text-blue-700 font-bold">
               {currentDocType === 'bedside'
                 ? '1 Page (Bedside & Door Sheet)'
                 : currentDocType === 'careplans'
@@ -271,8 +273,8 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
           </div>
         </div>
 
-        {/* Paper Canvas Scroll Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-950/90 space-y-10 flex flex-col items-center">
+        {/* Paper Canvas Scroll Area (Light Professional Neutral Canvas) */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-8 bg-slate-200/80 space-y-10 flex flex-col items-center">
           <div
             className="w-full flex flex-col items-center space-y-10 transition-transform origin-top duration-150"
             style={{ transform: zoomLevel !== 100 ? `scale(${zoomLevel / 100})` : undefined }}
@@ -280,16 +282,16 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             {/* 1. Bedside & Door Label Sheet (A4 Landscape Layout) */}
             {(currentDocType === 'bedside' || currentDocType === 'both_types') && (
               <div className="w-full flex flex-col items-center">
-                <div className="w-full max-w-[297mm] text-xs font-bold text-slate-400 mb-2 flex items-center justify-between px-1">
+                <div className="w-full max-w-[297mm] text-xs font-bold text-slate-700 mb-2 flex items-center justify-between px-1">
                   <span className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
                     <span>BEDSIDE & FILE CARDS SHEET (A4 LANDSCAPE — ALL 6 CARDS)</span>
                   </span>
-                  <span className="text-emerald-400 font-mono text-[11px]">
+                  <span className="text-emerald-700 font-mono text-[11px] font-bold">
                     2 Bedside Cards (9×7) • 2 ID Tags (1.6×6.5) • 2 File Attached Cards (9×7)
                   </span>
                 </div>
-                <div className="w-full max-w-[297mm] bg-white rounded-xs shadow-2xl overflow-x-auto border border-slate-700">
+                <div className="w-full max-w-[297mm] bg-white rounded-xs shadow-xl overflow-x-auto border border-slate-300">
                   <div className="min-w-[270mm] flex justify-center">
                     <PrintableBedsideCardSheet patient={patient} showDimensionBadges={showDimensions} />
                   </div>
@@ -301,14 +303,14 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             {(currentDocType === 'careplans' || currentDocType === 'both_types') &&
               (printScope === 'both' || printScope === 'plan1') && (
                 <div className="w-full flex flex-col items-center">
-                  <div className="w-full max-w-[210mm] text-xs font-bold text-slate-400 mb-2 flex items-center justify-between px-1">
+                  <div className="w-full max-w-[210mm] text-xs font-bold text-slate-700 mb-2 flex items-center justify-between px-1">
                     <span className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
                       <span>PAGE 1: NURSING CARE PLAN #1 (A4 PORTRAIT)</span>
                     </span>
-                    <span className="text-blue-400 font-mono text-[11px]">Upper-Right Inpatient Label Included</span>
+                    <span className="text-blue-700 font-mono text-[11px] font-bold">Upper-Right Inpatient Label Included</span>
                   </div>
-                  <div className="w-full max-w-[210mm] bg-white rounded-xs shadow-2xl overflow-hidden border border-slate-700">
+                  <div className="w-full max-w-[210mm] bg-white rounded-xs shadow-xl overflow-hidden border border-slate-300">
                     <PrintableCarePlan
                       patient={patient}
                       carePlan={carePlan1}
@@ -323,14 +325,14 @@ export const PrintPreviewModal: React.FC<PrintPreviewModalProps> = ({
             {(currentDocType === 'careplans' || currentDocType === 'both_types') &&
               (printScope === 'both' || printScope === 'plan2') && (
                 <div className="w-full flex flex-col items-center">
-                  <div className="w-full max-w-[210mm] text-xs font-bold text-slate-400 mb-2 flex items-center justify-between px-1">
+                  <div className="w-full max-w-[210mm] text-xs font-bold text-slate-700 mb-2 flex items-center justify-between px-1">
                     <span className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-slate-500"></span>
                       <span>PAGE 2: NURSING CARE PLAN #2 (A4 PORTRAIT)</span>
                     </span>
-                    <span className="text-blue-400 font-mono text-[11px]">Upper-Right Inpatient Label Included</span>
+                    <span className="text-blue-700 font-mono text-[11px] font-bold">Upper-Right Inpatient Label Included</span>
                   </div>
-                  <div className="w-full max-w-[210mm] bg-white rounded-xs shadow-2xl overflow-hidden border border-slate-700">
+                  <div className="w-full max-w-[210mm] bg-white rounded-xs shadow-xl overflow-hidden border border-slate-300">
                     <PrintableCarePlan
                       patient={patient}
                       carePlan={carePlan2}

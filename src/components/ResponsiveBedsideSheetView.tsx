@@ -435,7 +435,7 @@ export const ResponsiveBedsideSheetView: React.FC<ResponsiveBedsideSheetViewProp
             <div>
               <h3 className="text-base font-black text-emerald-400 flex items-center gap-2">
                 <Scissors className="w-5 h-5 text-emerald-400" />
-                <span>ID Tags for Specimen Tubes & Wristbands (1.6 × 6.5 cm)</span>
+                <span>Vertical ID Tags (1.6 × 6.5 cm)</span>
               </h3>
               <p className="text-xs text-slate-400 mt-0.5">
                 All 9 identification fields formatted into 4 structured rows, precision-fitted to the 16mm × 65mm physical tag size.
@@ -456,11 +456,11 @@ export const ResponsiveBedsideSheetView: React.FC<ResponsiveBedsideSheetViewProp
               <div className="flex justify-center items-center gap-8 py-2">
                 <div className="flex flex-col items-center gap-1.5">
                   <IdTagCard patient={patient} id="preview-id-tag-1" unfilledWardBed={false} />
-                  <span className="text-[10px] font-mono text-slate-400">Tag #1 (Filled)</span>
+                  <span className="text-[10px] font-mono text-slate-400">Tag #1 (Filled W/B)</span>
                 </div>
                 <div className="flex flex-col items-center gap-1.5">
                   <IdTagCard patient={patient} id="preview-id-tag-2" unfilledWardBed={true} />
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">Tag #2 (Unfilled W/B)</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">Tag #2 (Flexible Transfer)</span>
                 </div>
               </div>
             </div>
@@ -519,9 +519,9 @@ export const ResponsiveBedsideSheetView: React.FC<ResponsiveBedsideSheetViewProp
                   </div>
                 </div>
 
-                {/* Horizontal representation for Tag 2 (Unfilled Ward & Bed) */}
+                {/* Horizontal representation for Tag 2 (Flexible Transfer Use) */}
                 <div className="text-[10px] text-emerald-400 font-mono w-full flex justify-between items-center pt-2">
-                  <span>Tag #2 (Unfilled Ward & Bed):</span>
+                  <span>Tag #2 (Flexible Transfer Use — Unfilled Ward & Bed):</span>
                 </div>
                 <div
                   className="border-[2px] border-[#002878] bg-white text-black p-2.5 rounded-xs shadow-xl flex flex-col justify-between font-sans"
@@ -568,7 +568,7 @@ export const ResponsiveBedsideSheetView: React.FC<ResponsiveBedsideSheetViewProp
                 </div>
               </div>
               <p className="text-[10px] text-slate-400 text-center">
-                Tag #1 includes ward & bed, while Tag #2 keeps ward & bed unfilled (<code className="text-emerald-400">W: _____ B: _____</code>) for specimen tubes and flexible transfer use.
+                Tag #1 includes assigned ward & bed, while Tag #2 keeps ward & bed unfilled (<code className="text-emerald-400">W: _____ B: _____</code>) for flexible transfer use.
               </p>
             </div>
           </div>
