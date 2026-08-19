@@ -48,7 +48,6 @@ const COMMON_ALLERGIES = [
 interface PatientDemographicsFormProps {
   patient: PatientDemographics;
   onChange: (updated: PatientDemographics) => void;
-  onLoadSample: (sampleKey: string) => void;
   onReset: () => void;
   onOpenPrintPreview?: (docType?: 'careplans' | 'bedside' | 'both_types') => void;
 }
@@ -56,7 +55,6 @@ interface PatientDemographicsFormProps {
 export const PatientDemographicsForm: React.FC<PatientDemographicsFormProps> = ({
   patient,
   onChange,
-  onLoadSample,
   onReset,
   onOpenPrintPreview,
 }) => {
@@ -154,49 +152,6 @@ export const PatientDemographicsForm: React.FC<PatientDemographicsFormProps> = (
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Clear Fields</span>
-          </button>
-
-          <span className="text-slate-300">|</span>
-
-          {/* Quick Sample Loader Chips */}
-          <span className="text-slate-400 font-medium hidden sm:inline flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" /> Presets:
-          </span>
-          <button
-            id="load-sample-yusuf-btn"
-            type="button"
-            onClick={() => onLoadSample('sample-yusuf')}
-            className="px-2.5 py-1 rounded-md bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold border border-blue-200 transition-all text-xs shadow-xs"
-            title="Load Yusuf Yaqoob Naser (Exact Attached File Sample)"
-          >
-            ★ Yusuf Yaqoob (Template)
-          </button>
-          <button
-            id="load-sample-surgical-btn"
-            type="button"
-            onClick={() => onLoadSample('sample-1')}
-            className="px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 font-semibold border border-slate-300 transition-all text-xs shadow-xs"
-            title="Load Surgical Inpatient (Post-Cholecystectomy)"
-          >
-            Surgical Post-Op
-          </button>
-          <button
-            id="load-sample-cardiac-btn"
-            type="button"
-            onClick={() => onLoadSample('sample-2')}
-            className="px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 font-semibold border border-slate-300 transition-all text-xs shadow-xs"
-            title="Load Cardiac Inpatient (CHF / Telemetry)"
-          >
-            Cardiac CHF
-          </button>
-          <button
-            id="load-sample-neuro-btn"
-            type="button"
-            onClick={() => onLoadSample('sample-3')}
-            className="px-2.5 py-1 rounded-md bg-white hover:bg-slate-50 text-slate-700 font-semibold border border-slate-300 transition-all text-xs shadow-xs"
-            title="Load Neuro Inpatient (Stroke / Fall Risk)"
-          >
-            Stroke / Neuro
           </button>
         </div>
       </div>

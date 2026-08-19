@@ -10,7 +10,6 @@ interface SavedRecordsModalProps {
   onLoadRecord: (record: InpatientRecord) => void;
   onDeleteRecord: (id: string) => void;
   onImportRecords: (records: InpatientRecord[]) => void;
-  onResetPresets: () => void;
   onNewPatient: () => void;
 }
 
@@ -22,7 +21,6 @@ export const SavedRecordsModal: React.FC<SavedRecordsModalProps> = ({
   onLoadRecord,
   onDeleteRecord,
   onImportRecords,
-  onResetPresets,
   onNewPatient,
 }) => {
   const [search, setSearch] = useState('');
@@ -172,15 +170,6 @@ export const SavedRecordsModal: React.FC<SavedRecordsModalProps> = ({
               onChange={handleFileChange}
               className="hidden"
             />
-
-            <button
-              type="button"
-              onClick={onResetPresets}
-              className="px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-800 text-xs font-medium transition-all"
-              title="Restore standard clinical sample presets"
-            >
-              Reset Samples
-            </button>
           </div>
         </div>
 

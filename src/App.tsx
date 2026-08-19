@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { PatientDemographics, NursingCarePlan, InpatientRecord, NandaItem } from './types';
-import { SAMPLE_PATIENTS } from './data/samplePatients';
 import { PatientDemographicsForm } from './components/PatientDemographicsForm';
 import { CarePlanEditor } from './components/CarePlanEditor';
 import { NandaSearchModal } from './components/NandaSearchModal';
@@ -137,7 +136,7 @@ export default function App() {
     } catch (e) {
       console.error('Failed to load records from localStorage', e);
     }
-    return SAMPLE_PATIENTS;
+    return [];
   });
 
   const [recordsModalOpen, setRecordsModalOpen] = useState(false);
@@ -180,12 +179,6 @@ export default function App() {
       return [...filteredNew, ...prev];
     });
     showToast(`Imported ${newRecords.length} care plan records`);
-  };
-
-  // Reset presets
-  const handleResetPresets = () => {
-    setSavedRecords(SAMPLE_PATIENTS);
-    showToast('Sample inpatient presets restored');
   };
 
   // Open NANDA search modal for a specific plan
@@ -234,17 +227,6 @@ export default function App() {
     setCarePlan1(temp2);
     setCarePlan2(temp1);
     showToast('Swapped Priority between Care Plan #1 and #2');
-  };
-
-  // Load a sample preset
-  const handleLoadSample = (sampleId: string) => {
-    const found = SAMPLE_PATIENTS.find((s) => s.id === sampleId);
-    if (found) {
-      setPatient(found.patient);
-      setCarePlan1(found.carePlan1);
-      setCarePlan2(found.carePlan2);
-      showToast(`Loaded inpatient preset: ${found.patient.fullName}`);
-    }
   };
 
   // Clear Demographics only
@@ -587,7 +569,6 @@ export default function App() {
             <PatientDemographicsForm
               patient={patient}
               onChange={setPatient}
-              onLoadSample={handleLoadSample}
               onReset={handleClearDemographics}
               onOpenPrintPreview={(docType) => {
                 setPrintDocType(docType);
@@ -653,16 +634,6 @@ export default function App() {
                 >
                   <Tag className="w-3.5 h-3.5" />
                   <span>{showBedsideDimensions ? 'Dimension Rulers: On' : 'Dimension Rulers: Off'}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleLoadSample('sample-yusuf')}
-                  className="px-3 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5"
-                  title="Load exact sample data from the attached file"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-                  <span>Load Yusuf Yaqoob Preset</span>
                 </button>
 
                 <button
@@ -1025,7 +996,6 @@ export default function App() {
         onLoadRecord={handleLoadRecord}
         onDeleteRecord={handleDeleteRecord}
         onImportRecords={handleImportRecords}
-        onResetPresets={handleResetPresets}
         onNewPatient={handleNewRecord}
       />
 
